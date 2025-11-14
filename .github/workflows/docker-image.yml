@@ -16,15 +16,15 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
         with:
           # This will produce tags like username/devops6:main
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/devops6
+          images: ${{ secrets.DOCKER_USERNAME }}/devops6
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
